@@ -1,0 +1,133 @@
+var readlineSync = require("readline-sync");
+
+var score = 0;
+
+
+// Head
+
+var userName = readlineSync.question("What's your name? ");
+
+console.log("              ")
+console.log("Welcome ", userName);
+console.log("                ");
+console.log("Here, we are conducting a quiz about nutrition");
+console.log("               ");
+console.log("Enter TRUE or FALSE ");
+console.log("                ");
+console.log("Time for Level-1:: ")
+console.log("                   ")
+
+
+// Core
+
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer === answer) {
+    console.log("Right")
+    score++
+    console.log("score is ", score)
+    console.log("             ")
+  } else {
+    console.log("Wrong");
+    console.log("score is ", score)
+    console.log("             ")
+  }
+}
+
+
+// level 1
+
+var question = [{
+  question: "Olive oil prevents heart disease ",
+  answer: "TRUE"
+}, {
+  question: "Sugary soft drinks lead to diabetes ",
+  answer: "TRUE"
+}, {
+  question: "Drinking fruit juice is as good for you as eating fruit ",
+  answer: "FALSE"
+}, {
+  question: "Does coffee cause cancer ",
+  answer: "FALSE"
+}];
+
+for (var i = 0; i < question.length; i++) {
+  var currentQuestion = question[i];
+  play(currentQuestion.question, currentQuestion.answer)
+}
+
+console.log("YAY!!! You scored ", score)
+console.log("              ")
+
+
+
+// level 2
+if (score === 4) {
+  console.log("Time for Level-2:: ")
+  console.log("                   ")
+} else {
+  console.log("Try Again")
+}
+
+var question = [{
+  question: "Eggs raise cholesterol levels ",
+  answer: "FALSE"
+}, {
+  question: "Nuts makes you fat ",
+  answer: "FALSE"
+}, {
+  question: "Walking is as effective as running ",
+  answer: "TRUE"
+}, {
+  question: "You can drink too much water ",
+  answer: "TRUE"
+}];
+
+for (var i = 0; i < question.length; i++) {
+  var currentQuestion = question[i];
+  play(currentQuestion.question, currentQuestion.answer);
+}
+console.log("YAY!!! You scored ", score)
+console.log("              ")
+
+
+
+// level 3
+if (score === 8) {
+  console.log("Time for Level-3:: ")
+  console.log("                   ")
+} else {
+  console.log("Try Again")
+}
+
+var question = [{
+  question: "All wheat breads are better than white bread ",
+  answer: "FALSE"
+}, {
+  question: "Yogurt can ease digestive problems ",
+  answer: "TRUE"
+}, {
+  question: "Red wine is better for you than white wine ",
+  answer: "TRUE"
+}, {
+  question: "Bottledwater is better for you than tap water ",
+  answer: "FALSE"
+}]
+
+for (var i = 0; i < question.length; i++) {
+  var currentQuestion = question[i];
+  play(currentQuestion.question, currentQuestion.answer)
+}
+console.log("YAY!!! You scored ", score)
+console.log("              ")
+
+
+// tail
+
+if (score === 12) {
+  console.log("You passed 3 levels ")
+  console.log("You had great knowledge on nutrition ")
+} else {
+  console.log("Almost there, Try Again")
+}
